@@ -201,7 +201,7 @@ void handle_init(void) {
   layer_add_child(date_holder, line_layer);
 
   ResHandle roboto_49 = resource_get_handle(RESOURCE_ID_FONT_ROBOTO_BOLD_SUBSET_49);
-  text_time_layer = text_layer_create(GRect(7, 45, 144-7, 49));
+  text_time_layer = text_layer_create(GRect(3, 45, 144-7, 49));
   text_layer_set_text_color(text_time_layer, GColorWhite);
   text_layer_set_background_color(text_time_layer, GColorClear);
   text_layer_set_text_alignment(text_time_layer, GTextAlignmentCenter);
