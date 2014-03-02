@@ -176,23 +176,23 @@ void handle_init(void) {
   layer_add_child(weather_holder, text_layer_get_layer(temp_layer));
 
   // Initialize date & time text
-  Layer *date_holder = layer_create(GRect(0, 52, 144, 94));
+  Layer *date_holder = layer_create(GRect(0, 52, 144-8, 94));
   layer_add_child(window_layer, date_holder);
 
   ResHandle roboto_21 = resource_get_handle(RESOURCE_ID_FONT_ROBOTO_CONDENSED_21);
-  text_day_layer = text_layer_create(GRect(8, 0, 144-8, 25));
-  text_layer_set_text_color(text_day_layer, GColorWhite);
+  text_day_layer = text_layer_create(GRect(8, 51, 144-8, 25));
+  text_layer_set_text_color(text_day_layer, GColorBlack);
   text_layer_set_background_color(text_day_layer, GColorClear);
   text_layer_set_font(text_day_layer, fonts_load_custom_font(roboto_21));
   layer_add_child(date_holder, text_layer_get_layer(text_day_layer));
 
-  text_date_layer = text_layer_create(GRect(8, 21, 144-8, 25));
+  text_date_layer = text_layer_create(GRect(8, 66, 144-8, 25));
   text_layer_set_text_color(text_date_layer, GColorWhite);
   text_layer_set_background_color(text_date_layer, GColorClear);
   text_layer_set_font(text_date_layer, fonts_load_custom_font(roboto_21));
   layer_add_child(date_holder, text_layer_get_layer(text_date_layer));
 
-  line_layer = layer_create(GRect(8, 47, 144-16, 2));
+  line_layer = layer_create(GRect(8, 53, 144-16, 2));
   layer_set_update_proc(line_layer, line_layer_update_callback);
   layer_add_child(date_holder, line_layer);
 	
@@ -201,7 +201,7 @@ void handle_init(void) {
   layer_add_child(date_holder, line_layer);
 
   ResHandle roboto_49 = resource_get_handle(RESOURCE_ID_FONT_ROBOTO_BOLD_SUBSET_49);
-  text_time_layer = text_layer_create(GRect(3, 45, 144-7, 49));
+  text_time_layer = text_layer_create(GRect(4, 0-4, 144-7, 49));
   text_layer_set_text_color(text_time_layer, GColorWhite);
   text_layer_set_background_color(text_time_layer, GColorClear);
   text_layer_set_text_alignment(text_time_layer, GTextAlignmentCenter);
@@ -224,10 +224,10 @@ void handle_init(void) {
                 NULL, NULL);
 
   // FIXME testing code
-  battery_text_layer = text_layer_create(GRect(0, 53, 144-8, 30));
+  battery_text_layer = text_layer_create(GRect(0, 112, 144-8, 30));
   text_layer_set_text_color(battery_text_layer, GColorWhite);
   text_layer_set_background_color(battery_text_layer, GColorClear);
-  text_layer_set_font(battery_text_layer, fonts_load_custom_font(roboto_21));
+  text_layer_set_font(battery_text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28_BOLD));
   text_layer_set_text_alignment(battery_text_layer, GTextAlignmentRight);
   layer_add_child(window_layer, text_layer_get_layer(battery_text_layer));
 
