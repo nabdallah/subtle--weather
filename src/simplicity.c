@@ -114,7 +114,7 @@ void bluetooth_connection_changed(bool connected) {
 void handle_minute_tick(struct tm *tick_time, TimeUnits units_changed) {
   // Need to be static because they're used by the system later.
   static char day_text[] = "xxxxxxxxx";
-  static char date_text[] = "Xxxxxxxxx 00";
+  static char date_text[] = "Xxx 00";
   static char time_text[] = "00:00";
   static int yday = -1;
 
@@ -125,7 +125,7 @@ void handle_minute_tick(struct tm *tick_time, TimeUnits units_changed) {
     strftime(day_text, sizeof(day_text), "%A", tick_time);
     text_layer_set_text(text_day_layer, day_text);
 
-    strftime(date_text, sizeof(date_text), "%B %e", tick_time);
+    strftime(date_text, sizeof(date_text), "%b %e", tick_time);
     text_layer_set_text(text_date_layer, date_text);
   }
 
